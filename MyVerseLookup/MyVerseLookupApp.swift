@@ -11,7 +11,10 @@ import SwiftUI
 struct MyVerseLookupApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VerseListView(viewModel: VerseViewModel())
+                .onAppear {
+                    UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+                }
         }
     }
 }

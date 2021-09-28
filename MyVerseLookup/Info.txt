@@ -1,0 +1,10 @@
+
+http://labs.bible.org/api/?
+http://labs.bible.org/api/?passage=John%203:16
+http://labs.bible.org/api/?passage=John%203:16-17;John%201:1
+http://labs.bible.org/api/?passage=John%203:16-17;%205:8
+http://labs.bible.org/api/?passage=John%203:16&type=xml&formatting=para
+http://labs.bible.org/api/?passage=John%203:16&type=json&formatting=text
+
+http://labs.bible.org/api/?passage=votd
+http://labs.bible.org/api/?passage=random
