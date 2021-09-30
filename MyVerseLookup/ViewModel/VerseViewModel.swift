@@ -14,6 +14,7 @@ final class VerseViewModel: ObservableObject {
     @Published var verseField = ""
     @Published var verseValid = false
     @Published var parsedVerse = Verse()
+    @Published private(set) var debounced = ""
 
     private var subscriber: AnyCancellable?
     private var cancellable = Set<AnyCancellable>()
@@ -29,19 +30,19 @@ final class VerseViewModel: ObservableObject {
     }
 
     /// parse verse and put components into verse[] struct. This will be used in creating a URL to provide to API. verseValid updated as appropriate.
-//    init() {
-//        $verseField
-//            .sink { newValue in
-//               print(newValue)
-//            }
-//            .store(in: &cancellable)
+    init() {
+        $verseField
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .removeDuplicates()
+            .assign(to: &$debounced)
 //        validateVerse()
-//    }
+    }
 
     /// Check validity of input search term, update verseValid as appropriate
     func validateVerse() {
         let versePredicate = NSPredicate(format: "SELF MATCHES %@", versePattern)
-        $verseField
+ //       $verseField
+        $debounced
             .map { verse in
                 return versePredicate.evaluate(with: verse)
             }
@@ -61,7 +62,6 @@ final class VerseViewModel: ObservableObject {
         if let match = regex.firstMatch(in: verseField, options: [], range: nsrange) {
             ["fullVerse", "bookID", "book", "chapter", "verse", "endVerse"].forEach { component in
                 let innerRange = match.range(withName: component)
-                print(component)
                 if innerRange.location != NSNotFound, let range = Range(innerRange, in: verseField) {
                     parsedVerse[component] = "\(verseField[range])"
                 } else {
@@ -76,15 +76,17 @@ final class VerseViewModel: ObservableObject {
 
     /// Networking - fetch verse from API and update bibleVerse
     func fetchVerse() {
-        print(#file, #function)
         if !verseValid { return }
+        var finalVerse = ""
         let bookID = parsedVerse.bookID ?? ""
         let book = parsedVerse.book
         let chapter = parsedVerse.chapter
         let verse = parsedVerse.verse
+        if let endVerse = parsedVerse.endVerse {
+            finalVerse = "-\(endVerse)"
+        }
 //        let url = URL(string: "https://labs.bible.org/api/?passage=John%203:16&type=json")!
-        let url = URL(string: "\(baseURL)\(bookID)\(book)%20\(chapter):\(verse)&type=json")!
-        print("URL: \(url)")
+        let url = URL(string: "\(baseURL)\(bookID)\(book)%20\(chapter):\(verse)\(finalVerse)&type=json")!
         handleRequest(url: url)
     }
 
@@ -100,7 +102,6 @@ final class VerseViewModel: ObservableObject {
     }
 
     private func handleRequest(url: URL) {
-        print(#file, #function)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         subscriber = perform(request: request)
@@ -108,27 +109,22 @@ final class VerseViewModel: ObservableObject {
     }
 
     private func perform(request: URLRequest) -> AnyPublisher<[BibleVerse], Error> {
-        print(#file, #function)
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap(decode(result:))
-            .print()
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 
     private func decode(result: URLSession.DataTaskPublisher.Output) throws -> [BibleVerse] {
-        print(#file, #function)
         let decoder = JSONDecoder()
         return try decoder.decode([BibleVerse].self, from: result.data)
     }
 
     private func received(bibleVerse: [BibleVerse]) {
-        print(#file, #function)
         self.bibleVerse = bibleVerse
     }
 
     private func completed(with completion: Subscribers.Completion<Error>) {
-        print(#file, #function)
         switch completion {
         case .finished:
             return

@@ -31,14 +31,18 @@ struct VerseListView: View {
 //                Text("Chapter: " + viewModel.parsedVerse.chapter)
 //                Text("Verse: " + viewModel.parsedVerse.verse)
                 if !viewModel.parsedVerse.verse.isEmpty {
-                    VerseView(verseText: viewModel.bibleVerse.first?.verseText ?? "")
+                    VersesView(verses: viewModel.bibleVerse)
+ //                   VerseView(verseText: viewModel.bibleVerse.first?.verseText ?? "")
                 }
                 Spacer()
             }
             .padding(.horizontal)
             .navigationTitle("Bible Verse")
         }
-        .onChange(of: viewModel.verseField) { newValue in
+        .onReceive(viewModel.$debounced) { newValue in
+            guard !newValue.isEmpty else {
+                return
+            }
             UserDefaults.standard.setValue(newValue, forKey: UserDefaultKeys.lastVerse)
         }
     }

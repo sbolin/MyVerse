@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		157F796F26FE55E100D655A4 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157F796E26FE55E100D655A4 /* UserDefaultKeys.swift */; };
 		157F797126FF686600D655A4 /* Info.txt in Resources */ = {isa = PBXBuildFile; fileRef = 157F797026FF686600D655A4 /* Info.txt */; };
+		157FF4D82705C75B00C29BDD /* VersesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157FF4D72705C75B00C29BDD /* VersesView.swift */; };
 		1585EB6527031D950059C832 /* BibleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1585EB6427031D950059C832 /* BibleInfo.swift */; };
 		1585EB67270330840059C832 /* VerseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1585EB66270330840059C832 /* VerseView.swift */; };
 		159AE5B826F9F4BF003D2521 /* MyVerseLookupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159AE5B726F9F4BF003D2521 /* MyVerseLookupApp.swift */; };
@@ -17,13 +18,13 @@
 		159AE5BF26F9F4C2003D2521 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 159AE5BE26F9F4C2003D2521 /* Preview Assets.xcassets */; };
 		159AE5C626F9F694003D2521 /* VerseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159AE5C526F9F694003D2521 /* VerseViewModel.swift */; };
 		159AE5C826F9FDB4003D2521 /* BibleVerse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159AE5C726F9FDB4003D2521 /* BibleVerse.swift */; };
-		159AE5CA26FB288D003D2521 /* RegEx_Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159AE5C926FB288C003D2521 /* RegEx_Temp.swift */; };
 		159AE5D226FC23AA003D2521 /* VerseLookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159AE5D126FC23AA003D2521 /* VerseLookupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		157F796E26FE55E100D655A4 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		157F797026FF686600D655A4 /* Info.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Info.txt; sourceTree = "<group>"; };
+		157FF4D72705C75B00C29BDD /* VersesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersesView.swift; sourceTree = "<group>"; };
 		1585EB6427031D950059C832 /* BibleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleInfo.swift; sourceTree = "<group>"; };
 		1585EB66270330840059C832 /* VerseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseView.swift; sourceTree = "<group>"; };
 		159AE5B426F9F4BF003D2521 /* MyVerseLookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVerseLookup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,9 +32,8 @@
 		159AE5B926F9F4BF003D2521 /* VerseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseListView.swift; sourceTree = "<group>"; };
 		159AE5BB26F9F4C2003D2521 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		159AE5BE26F9F4C2003D2521 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		159AE5C526F9F694003D2521 /* VerseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseViewModel.swift; sourceTree = "<group>"; };
+		159AE5C526F9F694003D2521 /* VerseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseViewModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		159AE5C726F9FDB4003D2521 /* BibleVerse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleVerse.swift; sourceTree = "<group>"; };
-		159AE5C926FB288C003D2521 /* RegEx_Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegEx_Temp.swift; sourceTree = "<group>"; };
 		159AE5D126FC23AA003D2521 /* VerseLookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseLookupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +80,6 @@
 				159AE5CC26FB9FC8003D2521 /* ViewModel */,
 				159AE5CB26FB9F46003D2521 /* Model */,
 				157F796D26FE55BB00D655A4 /* Utilities */,
-				159AE5C926FB288C003D2521 /* RegEx_Temp.swift */,
 				159AE5BB26F9F4C2003D2521 /* Assets.xcassets */,
 				159AE5BD26F9F4C2003D2521 /* Preview Content */,
 				157F797026FF686600D655A4 /* Info.txt */,
@@ -119,6 +118,7 @@
 				159AE5B926F9F4BF003D2521 /* VerseListView.swift */,
 				159AE5D126FC23AA003D2521 /* VerseLookupView.swift */,
 				1585EB66270330840059C832 /* VerseView.swift */,
+				157FF4D72705C75B00C29BDD /* VersesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,11 +197,11 @@
 				157F796F26FE55E100D655A4 /* UserDefaultKeys.swift in Sources */,
 				159AE5C826F9FDB4003D2521 /* BibleVerse.swift in Sources */,
 				159AE5BA26F9F4BF003D2521 /* VerseListView.swift in Sources */,
-				159AE5CA26FB288D003D2521 /* RegEx_Temp.swift in Sources */,
 				1585EB6527031D950059C832 /* BibleInfo.swift in Sources */,
 				159AE5C626F9F694003D2521 /* VerseViewModel.swift in Sources */,
 				1585EB67270330840059C832 /* VerseView.swift in Sources */,
 				159AE5B826F9F4BF003D2521 /* MyVerseLookupApp.swift in Sources */,
+				157FF4D82705C75B00C29BDD /* VersesView.swift in Sources */,
 				159AE5D226FC23AA003D2521 /* VerseLookupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
