@@ -11,7 +11,7 @@ struct VerseLookupView: View {
     var sfSymbolName: String = "book"
     var placeholder: String = "Verse?"
     var prompt: String = "Please enter a valid verse"
-    var verseIsValid: Bool = false
+    var verseIsValid: Bool = true
     @Binding var field: String
 
     var body: some View {
@@ -33,7 +33,7 @@ struct VerseLookupView: View {
             .autocapitalization(.none)
             .padding(8)
             .background(Color(.secondarySystemBackground))
-            .overlay(RoundedRectangle(cornerRadius: 6).stroke(verseIsValid ? Color.green : Color.red, lineWidth: verseIsValid ? 1 : 2))
+            .overlay(RoundedRectangle(cornerRadius: 6).stroke(verseIsValid ? Color.green : Color.pink.opacity(0.5), lineWidth: verseIsValid ? 1 : 1))
             Text(verseIsValid ? "" : prompt)
                 .foregroundColor(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
@@ -44,6 +44,6 @@ struct VerseLookupView: View {
 
 struct VerseLookupView_Previews: PreviewProvider {
     static var previews: some View {
-        VerseLookupView(field: .constant(""))
+        VerseLookupView(field: .constant("John 3:16"))
     }
 }

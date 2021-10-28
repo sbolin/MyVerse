@@ -16,7 +16,7 @@ struct VerseView: View {
             .frame(maxWidth: .infinity, alignment: .center)
             .padding()
             .background(Color(uiColor: UIColor(named: "VerseBackground")!))
-            .overlay(RoundedRectangle(cornerRadius: 6).strokeBorder())
+            .overlay(RoundedRectangle(cornerRadius: 6).foregroundColor(.clear))
     }
 }
 

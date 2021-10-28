@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 struct BibleInfo {
 
     func BookFromAbr(abr: String) -> String? {
@@ -158,3 +158,4 @@ struct BibleInfo {
         ]
     }
 }
+*/

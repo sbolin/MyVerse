@@ -32,17 +32,18 @@ final class VerseViewModel: ObservableObject {
     /// parse verse and put components into verse[] struct. This will be used in creating a URL to provide to API. verseValid updated as appropriate.
     init() {
         $verseField
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+//            .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .removeDuplicates()
-            .assign(to: &$debounced)
+            .assign(to: &$verseField)
+//            .assign(to: &$debounced)
 //        validateVerse()
     }
 
     /// Check validity of input search term, update verseValid as appropriate
     func validateVerse() {
         let versePredicate = NSPredicate(format: "SELF MATCHES %@", versePattern)
- //       $verseField
-        $debounced
+        $verseField
+//        $debounced
             .map { verse in
                 return versePredicate.evaluate(with: verse)
             }
@@ -82,14 +83,16 @@ final class VerseViewModel: ObservableObject {
         let book = parsedVerse.book
         let chapter = parsedVerse.chapter
         let verse = parsedVerse.verse
-        if let endVerse = parsedVerse.endVerse {
-            finalVerse = "-\(endVerse)"
+        let endVerse = parsedVerse.endVerse
+        if !(endVerse == nil || endVerse!.isEmpty) {
+            finalVerse = "-\(endVerse!)"
         }
+
 //        let url = URL(string: "https://labs.bible.org/api/?passage=John%203:16&type=json")!
-        let url = URL(string: "\(baseURL)\(bookID)\(book)%20\(chapter):\(verse)\(finalVerse)&type=json")!
+        let url = URL(string: "\(baseURL)\(bookID)\(book)%20\(chapter):\(verse)\(finalVerse)&type=json&formatting=plain")!
         handleRequest(url: url)
     }
-
+// http://labs.bible.org/api/?passage=Lk%202:1;%204:4&formatting=plain)
     func fetchVOTD() {
         let url = URL(string: "\(baseURL)votd")!
         handleRequest(url: url)
