@@ -10,7 +10,7 @@ import SwiftUI
 
 final class VerseViewModel: ObservableObject {
 
-    @Published var bibleVerse: [BibleVerse] = [] // only 1 verse returned
+    @Published var bibleVerse: [BibleVerse] = []
     @Published var verseField = ""
     @Published var verseValid = false
     @Published var parsedVerse = Verse()
@@ -100,7 +100,9 @@ final class VerseViewModel: ObservableObject {
     }
 
     func fetchRandomVerse() {
-        let url = URL(string: "\(baseURL)random")!
+        verseValid = true
+        let url = URL(string: "\(baseURL)random&type=json&formatting=plain")!
+        print(url)
         handleRequest(url: url)
     }
 
