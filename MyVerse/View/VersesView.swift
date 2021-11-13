@@ -54,10 +54,14 @@ struct VersesView: View {
 //        .textSelection(.enabled)
     }
     private func makeCopyText() {
-        copyVerse.append("\(verses[0].bookname) \(verses[0].chapter)")
+        copyVerse = ""
+        copyVerse.append(verses.first?.bookname ?? "")
+        copyVerse.append(" ")
+        copyVerse.append(verses.first?.chapter ?? "")
+        copyVerse.append("\n")
         verses.forEach { verse in
-            copyVerse.append(verse.verse)
-            copyVerse.append(verse.verseText)
+            copyVerse.append(verse.verse + "\n")
+            copyVerse.append(verse.verseText + "\n")
         }
         UIPasteboard.general.setValue(copyVerse, forPasteboardType: "public.plain-text")
     }

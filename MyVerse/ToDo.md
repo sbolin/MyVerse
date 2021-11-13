@@ -1,7 +1,6 @@
 #  ToDo
 ## 1st Priority
-1. Copy verse text
-2. UI: Keyboard dismissal is sort of wonky - return dismissed the keyboard, but pressing the find button does not. Need to set it so pressing find dismisses the keyboard. (FocusState...)
+1. UI: Keyboard dismissal is sort of wonky - return dismissed the keyboard, but pressing the find button does not. Need to set it so pressing find dismisses the keyboard. (FocusState...)
 
 ## 2nd Priority
 3. Overall UI is...not the best.
