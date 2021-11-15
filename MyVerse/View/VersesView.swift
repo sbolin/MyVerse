@@ -19,22 +19,22 @@ struct VersesView: View {
                 HStack(spacing: 4) {
                     Spacer()
                     Text("\(verses[0].bookname)")
+                        .font(.system(size: 24, weight: .light, design: .serif)).italic()
                     Text("\(verses[0].chapter)")
+                        .font(.system(size: 24, weight: .light, design: .serif)).italic()
                     Spacer()
                 }
+
                     ForEach(verses, id: \.verseText) { verse in
                         VStack(alignment: .leading, spacing: -3) {
                             Text(verse.verse)
                                 .font(.system(size: 12, weight: .light))
                                 .foregroundColor(.brown)
-//                                .textSelection(.enabled)
                             Text(verse.verseText)
                                 .font(.system(size: 18, weight: .light, design: .serif)).italic()
-//                                .textSelection(.enabled)
                             .padding(.horizontal, 8)
                         }
                     }
-//                    .textSelection(.enabled)
             } // VStack
             .foregroundColor(Color(uiColor: .darkGray))
             .frame(maxWidth: .infinity, alignment: .center)
@@ -46,12 +46,10 @@ struct VersesView: View {
             } label: {
                 Text("Copy Verse")
             }
-//            .buttonStyle(.bordered)
             .padding(8)
             .background(Color(uiColor: UIColor(named: "VerseBackground")!))
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .circular))
         } // ScrollView
-//        .textSelection(.enabled)
     }
     private func makeCopyText() {
         copyVerse = ""

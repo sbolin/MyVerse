@@ -29,6 +29,6 @@ struct TrialAdaptiveView: View {
 struct TrialAdaptiveView_Previews: PreviewProvider {
     static var previews: some View {
         TrialAdaptiveView()
-            .previewInterfaceOrientation(.landscapeRight)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

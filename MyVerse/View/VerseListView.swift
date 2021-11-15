@@ -10,6 +10,7 @@ import SwiftUI
 struct VerseListView: View {
     @ObservedObject var viewModel: VerseViewModel
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+//    @FocusState private var nameIsFocused: Bool
 
     var body: some View {
             VStack {
@@ -33,6 +34,7 @@ struct VerseListView: View {
                         Button {
                             viewModel.parseVerseText()
                             viewModel.fetchVerse()
+//                            nameIsFocused = false
                         } label: {
                             Image(systemName: "magnifyingglass.circle.fill")
                                 .font(.system(size: 26))
@@ -66,7 +68,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             VerseListView(viewModel: VerseViewModel())
-                .previewInterfaceOrientation(.portrait)
+                .previewInterfaceOrientation(.landscapeLeft)
         }
     }
 }

@@ -52,6 +52,7 @@ struct VerseLookupView: View {
                     TextField(placeholder, text: $field)
                         .padding(.trailing, clearButtonPadding)
                         .overlay(clearButton)
+                        .submitLabel(.search)
                 }// zstack
             } // hstack
             .autocapitalization(.none)
