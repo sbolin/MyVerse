@@ -19,7 +19,6 @@
 		159AE5C826F9FDB4003D2521 /* BibleVerse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159AE5C726F9FDB4003D2521 /* BibleVerse.swift */; };
 		159AE5D226FC23AA003D2521 /* VerseLookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159AE5D126FC23AA003D2521 /* VerseLookupView.swift */; };
 		15FC4569272B1B6D001ABEB7 /* AdaptiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FC4568272B1B6C001ABEB7 /* AdaptiveView.swift */; };
-		15FC456B272B1BB4001ABEB7 /* TrialAdaptiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FC456A272B1BB4001ABEB7 /* TrialAdaptiveView.swift */; };
 		15FC456D272BC11F001ABEB7 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FC456C272BC11F001ABEB7 /* TitleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		159AE5D126FC23AA003D2521 /* VerseLookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseLookupView.swift; sourceTree = "<group>"; };
 		15FC4567272B0B5F001ABEB7 /* ToDo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ToDo.md; sourceTree = "<group>"; };
 		15FC4568272B1B6C001ABEB7 /* AdaptiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveView.swift; sourceTree = "<group>"; };
-		15FC456A272B1BB4001ABEB7 /* TrialAdaptiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialAdaptiveView.swift; sourceTree = "<group>"; };
 		15FC456C272BC11F001ABEB7 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +124,6 @@
 				157FF4D72705C75B00C29BDD /* VersesView.swift */,
 				15FC456C272BC11F001ABEB7 /* TitleView.swift */,
 				15FC4568272B1B6C001ABEB7 /* AdaptiveView.swift */,
-				15FC456A272B1BB4001ABEB7 /* TrialAdaptiveView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,7 +204,6 @@
 				159AE5BA26F9F4BF003D2521 /* VerseListView.swift in Sources */,
 				1585EB6527031D950059C832 /* BibleInfo.swift in Sources */,
 				159AE5C626F9F694003D2521 /* VerseViewModel.swift in Sources */,
-				15FC456B272B1BB4001ABEB7 /* TrialAdaptiveView.swift in Sources */,
 				15FC4569272B1B6D001ABEB7 /* AdaptiveView.swift in Sources */,
 				159AE5B826F9F4BF003D2521 /* MyVerseApp.swift in Sources */,
 				157FF4D82705C75B00C29BDD /* VersesView.swift in Sources */,
@@ -270,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -325,7 +321,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -352,7 +348,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,7 +380,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

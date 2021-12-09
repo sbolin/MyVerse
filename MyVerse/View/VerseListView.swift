@@ -66,6 +66,9 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             VerseListView(viewModel: VerseViewModel())
                 .previewInterfaceOrientation(.landscapeLeft)
+
+            VerseListView(viewModel: VerseViewModel())
+                .previewInterfaceOrientation(.portrait)
         }
     }
 }
