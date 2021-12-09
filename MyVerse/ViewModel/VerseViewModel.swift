@@ -88,7 +88,6 @@ final class VerseViewModel: ObservableObject {
             finalVerse = "-\(endVerse!)"
         }
 
-//        let url = URL(string: "https://labs.bible.org/api/?passage=John%203:16&type=json")!
         let url = URL(string: "\(baseURL)\(bookID)\(book)%20\(chapter):\(verse)\(finalVerse)&type=json&formatting=plain")!
         handleRequest(url: url)
     }

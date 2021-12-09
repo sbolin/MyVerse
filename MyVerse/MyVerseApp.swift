@@ -11,6 +11,7 @@ import SwiftUI
 struct MyVerseApp: App {
     var body: some Scene {
         WindowGroup {
+//            TrialAdaptiveView()
             VerseListView(viewModel: VerseViewModel())
                 .onAppear {
                     UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")

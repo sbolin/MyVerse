@@ -13,7 +13,6 @@ struct VersesView: View {
     @State private var copyVerse: String = ""
 
     var body: some View {
-
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 4) {
@@ -24,7 +23,6 @@ struct VersesView: View {
                         .font(.system(size: 24, weight: .light, design: .serif)).italic()
                     Spacer()
                 }
-
                     ForEach(verses, id: \.verseText) { verse in
                         VStack(alignment: .leading, spacing: -3) {
                             Text(verse.verse)
@@ -37,7 +35,7 @@ struct VersesView: View {
                     }
             } // VStack
             .foregroundColor(Color(uiColor: .darkGray))
-            .frame(maxWidth: .infinity, alignment: .center)
+//            .frame(maxWidth: .infinity, alignment: .center)
             .padding()
             .background(Color(uiColor: UIColor(named: "VerseBackground")!))
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.brown, lineWidth: 1))

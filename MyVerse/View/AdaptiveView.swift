@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdaptiveView<Content: View>: View {
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     var content: Content
 
     public init(@ViewBuilder content: () -> Content) {
@@ -16,13 +16,13 @@ struct AdaptiveView<Content: View>: View {
     }
 
     var body: some View {
-        if horizontalSizeClass == .compact {
-            VStack(alignment: .leading, spacing: 12) {
+        if verticalSizeClass == .compact {
+            HStack(alignment: .top ,spacing: 12) {
                 content
                 Spacer()
             }
         } else {
-            HStack(spacing: 12) {
+            VStack(alignment: .leading ,spacing: 12) {
                 content
                 Spacer()
             }
