@@ -11,8 +11,9 @@ struct VerseLookupView: View {
     var sfSymbolName: String = "book"
     var placeholder: String = "Verse?"
     var prompt: String = "Please enter a valid verse"
-    var verseIsValid: Bool = true
+    var verseIsValid: Bool = false
     @Binding var field: String
+//    @FocusState private var verseIsFocused: Bool
     @Environment(\.clearButtonHidden) var clearButtonHidden
 
     var clearButton: some View {
@@ -50,6 +51,7 @@ struct VerseLookupView: View {
                         .scaleEffect(field.isEmpty ? 1 : 0.8, anchor: .leading)
                         .animation(.default, value: field.isEmpty)
                     TextField(placeholder, text: $field)
+//                        .focused($verseIsFocused)
                         .padding(.trailing, clearButtonPadding)
                         .overlay(clearButton)
                         .submitLabel(.search)
@@ -57,13 +59,16 @@ struct VerseLookupView: View {
             } // hstack
             .autocapitalization(.none)
             .padding(8)
-            .background(Color(.systemGray6))
+            .background(Color(.systemBackground))
             .overlay(RoundedRectangle(cornerRadius: 6).stroke(verseIsValid ? Color.green : Color.pink.opacity(0.5), lineWidth: verseIsValid ? 1 : 1))
-            Text(verseIsValid ? "" : prompt)
+            Text(verseIsValid ? " " : prompt)
                 .foregroundColor(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
                 .font(.caption)
         } // vstack
+//        .onSubmit {
+//            verseIsFocused = false
+//        }
     } // view
 }
 

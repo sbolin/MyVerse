@@ -34,19 +34,21 @@ struct VersesView: View {
                         }
                     }
             } // VStack
-            .foregroundColor(Color(uiColor: .darkGray))
+//            .foregroundColor(Color(uiColor: .darkGray))
 //            .frame(maxWidth: .infinity, alignment: .center)
             .padding()
             .background(Color(uiColor: UIColor(named: "VerseBackground")!))
-        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.brown, lineWidth: 1))
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+//          .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.brown, lineWidth: 2))
             Button {
                 makeCopyText()
             } label: {
                 Text("Copy Verse")
             }
-            .padding(8)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
             .background(Color(uiColor: UIColor(named: "VerseBackground")!))
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .circular))
+            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         } // ScrollView
     }
     private func makeCopyText() {

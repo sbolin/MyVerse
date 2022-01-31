@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VerseListView: View {
     @ObservedObject var viewModel: VerseViewModel
+    @FocusState private var verseIsFocused: Bool
 
     var body: some View {
         AdaptiveView {
@@ -27,10 +28,12 @@ struct VerseListView: View {
                 } // HStack
                 HStack(alignment: .center) {
                     VerseLookupView(verseIsValid: viewModel.verseValid, field: $viewModel.verseField)
+                        .focused($verseIsFocused)
                         .padding(.top, 12)
                     Button {
                         viewModel.parseVerseText()
                         viewModel.fetchVerse()
+                        verseIsFocused = false
                     } label: {
                         Image(systemName: "magnifyingglass.circle.fill")
                             .font(.system(size: 26))
@@ -58,6 +61,11 @@ struct VerseListView: View {
             UserDefaults.standard.setValue(newValue, forKey: UserDefaultKeys.lastVerse)
         }
         .preferredColorScheme(.light)
+        .onSubmit {
+            viewModel.parseVerseText()
+            viewModel.fetchVerse()
+            verseIsFocused = false
+        }
     }
 }
 
@@ -65,10 +73,10 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             VerseListView(viewModel: VerseViewModel())
+                .previewInterfaceOrientation(.portrait)
+            VerseListView(viewModel: VerseViewModel())
                 .previewInterfaceOrientation(.landscapeLeft)
 
-            VerseListView(viewModel: VerseViewModel())
-                .previewInterfaceOrientation(.portrait)
         }
     }
 }
