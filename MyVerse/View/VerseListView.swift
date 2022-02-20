@@ -13,7 +13,7 @@ struct VerseListView: View {
 
     var body: some View {
         AdaptiveView {
-            VStack {
+            VStack(spacing: 4) {
                 HStack {
                     TitleView()
                     Spacer()
@@ -53,7 +53,7 @@ struct VerseListView: View {
             } // VStack
             .frame(maxWidth: UIScreen.main.bounds.width)
         } // AdaptiveView
-        .padding()
+        .padding(.horizontal)
         .onReceive(viewModel.$verseField) { newValue in
             guard !newValue.isEmpty else {
                 return

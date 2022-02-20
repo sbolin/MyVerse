@@ -57,7 +57,7 @@ struct VerseLookupView: View {
                         .submitLabel(.search)
                 }// zstack
             } // hstack
-            .autocapitalization(.none)
+            .autocapitalization(.words)
             .padding(8)
             .background(Color(.systemBackground))
             .overlay(RoundedRectangle(cornerRadius: 6).stroke(verseIsValid ? Color.green : Color.pink.opacity(0.5), lineWidth: verseIsValid ? 1 : 1))

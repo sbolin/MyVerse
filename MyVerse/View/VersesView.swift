@@ -21,6 +21,14 @@ struct VersesView: View {
                         .font(.system(size: 24, weight: .light, design: .serif)).italic()
                     Text("\(verses[0].chapter)")
                         .font(.system(size: 24, weight: .light, design: .serif)).italic()
+                    Text(":")
+                        .font(.system(size: 24, weight: .light, design: .serif)).italic()
+                    Text("\(verses[0].verse)")
+                        .font(.system(size: 24, weight: .light, design: .serif)).italic()
+                    if verses.count > 1 {
+                        Text("-\(verses.last!.verse)")
+                            .font(.system(size: 24, weight: .light, design: .serif)).italic()
+                    }
                     Spacer()
                 }
                     ForEach(verses, id: \.verseText) { verse in
@@ -30,15 +38,15 @@ struct VersesView: View {
                                 .foregroundColor(.brown)
                             Text(verse.verseText)
                                 .font(.system(size: 18, weight: .light, design: .serif)).italic()
-                            .padding(.horizontal, 8)
+                            .padding(.horizontal, 4)
                         }
                     }
             } // VStack
 //            .foregroundColor(Color(uiColor: .darkGray))
 //            .frame(maxWidth: .infinity, alignment: .center)
-            .padding()
+            .padding(6)
             .background(Color(uiColor: UIColor(named: "VerseBackground")!))
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
 //          .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.brown, lineWidth: 2))
             Button {
                 makeCopyText()

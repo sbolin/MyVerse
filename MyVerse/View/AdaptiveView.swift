@@ -22,7 +22,7 @@ struct AdaptiveView<Content: View>: View {
                 Spacer()
             }
         } else {
-            VStack(alignment: .leading ,spacing: 12) {
+            VStack(alignment: .leading ,spacing: 0) {
                 content
                 Spacer()
             }
